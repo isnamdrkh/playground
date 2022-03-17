@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // Check Point:
 // Cashier
@@ -46,5 +44,43 @@ func main() {
 
 	orderMenu := make(map[string]int64)
 
-	// TODO: answer here
+	fmt.Println("Menu Makanan: ")
+	count := 0
+	var addAgain string
+
+	for {
+		for menu, price := range foodMenu {
+			count++
+			fmt.Println("- Menu: ", menu, ",", "Price:", price)
+		}
+
+		menu := ""
+		fmt.Println("Form: ")
+		fmt.Println("Masukan nama menu yang mau dipesan: ")
+		fmt.Scan(&menu)
+
+		if foodMenu[menu] != 0 {
+			orderMenu[menu]++
+		}
+
+		fmt.Println("Ingin memesan menu lain?(yes/no): ")
+		fmt.Scan(&addAgain)
+
+		if addAgain == "no" {
+			break
+		}
+	}
+
+	var total int64
+	for menu, qty := range orderMenu {
+		total += foodMenu[menu] * qty
+	}
+
+	for menu, qty := range orderMenu {
+		count++
+		fmt.Println(count, ".Menu: ", menu, ", Quantity: ", qty)
+	}
+
+	fmt.Println("Total Price: Rp.", total)
+
 }
