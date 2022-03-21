@@ -11,7 +11,7 @@ func order(drink string) {
 	// mengucapkan terima kasih di akhir dengan menggunakan defer
 	// TODO: answer here
 	fmt.Println("kami sedang ada diskon untuk pembelian kopi")
-	fmt.Println("pesanan anda:", drink)
+	defer fmt.Println("pesanan anda:", drink)
 	if drink == "kopi" {
 		fmt.Println("okee, karena diskon totalnya jadi 4000")
 	}

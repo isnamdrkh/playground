@@ -10,4 +10,8 @@ func main() {
 
 }
 
+func goodMorning(name string) {
+	fmt.Println("Selamat pagi", name)
+}
+
 // TODO: answer here
